@@ -1,0 +1,17 @@
+[build]
+  command = "yarn build"
+  publish = "build/client"
+
+[build.environment]
+  # Use a stable Node 20 to match project engines and reduce surprises
+  NODE_VERSION = "20.11.1"
+  # Increase V8 heap to avoid OOM during bundling on Netlify
+  NODE_OPTIONS = "--max-old-space-size=4096"
+  # Ensure assets and router base are rooted at "/" for Netlify
+  PUBLIC_PATH = "/"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
