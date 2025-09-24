@@ -5,3 +5,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Hide the default "Powered by" section in the footer */
+.oui-scaffold-footer-powered-by {
+  display: none !important;
+}
+
+/* Try to hide Exchange field in Orderly symbol info area (best-effort) */
+/* These selectors target common oui classes and testids containing "exchange" */
+[class*="oui-"] [class*="exchange"],
+[class*="oui-"] [data-testid*="exchange"],
+[class*="oui-symbol"] [class*="exchange"],
+.oui [class*="exchange"] {
+  display: none !important;
+}
